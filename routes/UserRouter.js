@@ -42,23 +42,10 @@ router.get("/list", async (req, res) => {
 
     const enrichedUsers = await Promise.all(
       users.map(async (user) => {
-        const [photoCount, commentCountAgg] = await Promise.all([
-          Photo.countDocuments({ user_id: user._id }),
-          Photo.aggregate([
-            { $unwind: "$comments" },
-            { $match: { "comments.user_id": new mongoose.Types.ObjectId(user._id) } },
-            { $count: "count" }
-          ])
-        ]);
-
-        const commentCount = commentCountAgg.length > 0 ? commentCountAgg[0].count : 0;
-
         return {
           _id: user._id,
           first_name: user.first_name,
-          last_name: user.last_name,
-          photoCount,
-          commentCount
+          last_name: user.last_name
         };
       })
     );

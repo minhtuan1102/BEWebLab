@@ -52,14 +52,19 @@ const schemaInfo = {
 // Create init users.
 
 const im = {
+  login_name: "Iam_Malcolm",
+  password: "123",
   _id: "57231f1a30e4351f4e9f4bd7",
   first_name: "Ian",
   last_name: "Malcolm",
   location: "Austin, TX",
   description: "Should've stayed in the car.",
   occupation: "Mathematician",
+
 };
 const er = {
+  login_name: "Ellen_Ripley",
+  password: "123",
   _id: "57231f1a30e4351f4e9f4bd8",
   first_name: "Ellen",
   last_name: "Ripley",
@@ -68,6 +73,8 @@ const er = {
   occupation: "Warrant Officer",
 };
 const pt = {
+  login_name: "Peregrin_Took",
+  password: "123",
   _id: "57231f1a30e4351f4e9f4bd9",
   first_name: "Peregrin",
   last_name: "Took",
@@ -80,6 +87,8 @@ const pt = {
   occupation: "Thain",
 };
 const rk = {
+  login_name: "Rey_Kenobi",
+  password: "123",
   _id: "57231f1a30e4351f4e9f4bda",
   first_name: "Rey",
   last_name: "Kenobi",
@@ -88,6 +97,8 @@ const rk = {
   occupation: "Rebel",
 };
 const al = {
+  login_name: "April_Ludgate",
+  password: "123",
   _id: "57231f1a30e4351f4e9f4bdb",
   first_name: "April",
   last_name: "Ludgate",
@@ -96,6 +107,8 @@ const al = {
   occupation: "Animal Control",
 };
 const jo = {
+  login_name: "John_Ousterhout",
+  password: "123",
   _id: "57231f1a30e4351f4e9f4bdc",
   first_name: "John",
   last_name: "Ousterhout",

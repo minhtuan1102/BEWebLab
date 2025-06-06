@@ -31,7 +31,7 @@ const upload = multer({
 router.post("/new", upload.single("photo"), async (req, res) => {
   try {
     if (!req.file) {
-      return res.status(400).send({ error: "No file uploaded" });
+      return res.status(400).send({error: "No file uploaded"});
     }
 
     // Without auth, you might need user_id in body or something else:
@@ -54,7 +54,6 @@ router.post("/new", upload.single("photo"), async (req, res) => {
     res.status(400).send({ error: error.message });
   }
 });
-
 // Add comment to photo (no auth)
 router.post("/commentsOfPhoto/:photo_id", async (req, res) => {
   try {
@@ -140,5 +139,7 @@ router.get("/:id", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
+
+
 
 module.exports = router;

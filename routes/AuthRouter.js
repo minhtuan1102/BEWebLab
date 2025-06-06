@@ -1,36 +1,36 @@
-const express = require('express');
+  const express = require('express');
 const router = express.Router();
 const User = require('../db/userModel');
 const jwt = require('jsonwebtoken');
 
 // Login
-router.post('/login', async (req, res) => {
-  try {
-    const { login_name, password } = req.body;
 
-    if (!login_name) {
-      return res.status(400).send({ error: 'Login name is required' });
-    }
+ router.post('/login', async (req, res) => {
+   try {
+     const { login_name, password } = req.body;
 
-    const user = await User.findOne({ login_name });
+     if (!login_name) {
+       return res.status(400).send({ error: 'Login name is required' });
+     }
 
-    if (!user || (password && user.password !== password)) {
-      return res.status(400).send({ error: 'Invalid login credentials' });
-    }
+     const user = await User.findOne({ login_name });
 
-    const token = jwt.sign({ userId: user._id }, 'your_jwt_secret', { expiresIn: '24h' });
+     if (!user || (password && user.password !== password)) {
+       return res.status(400).send({ error: 'Invalid login credentials' });
+     }
 
-    res.send({
-      _id: user._id,
-      first_name: user.first_name,
-      last_name: user.last_name,
-      token
-    });
-  } catch (error) {
-    res.status(400).send({ error: error.message });
-  }
-});
+     const token = jwt.sign({ userId: user._id }, 'your_jwt_secret', { expiresIn: '24h' });
 
+     res.send({
+       _id: user._id,
+       first_name: user.first_name,
+       last_name: user.last_name,
+       token
+     });
+   } catch (error) {
+     res.status(400).send({ error: error.message });
+   }
+ })
 // Logout
 router.post('/logout', async (req, res) => {
   try {
