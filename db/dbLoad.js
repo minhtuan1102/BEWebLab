@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-require("dotenv").config();
-
+require('dotenv').config();
+console.log('DB_URL:', process.env.DB_URL);
 const models = require("../modelData/models.js");
 
 const User = require("../db/userModel.js");
@@ -14,7 +14,7 @@ async function dbLoad() {
     await mongoose.connect(process.env.DB_URL);
     console.log("Successfully connected to MongoDB Atlas!");
   } catch (error) {
-    console.log("Unable connecting to MongoDB Atlas!");
+    console.log("Unable connecting to MongoDB Atlas!", error);
   }
 
   await User.deleteMany({});
@@ -25,8 +25,6 @@ async function dbLoad() {
   const mapFakeId2RealId = {};
   for (const user of userModels) {
     userObj = new User({
-      login_name: user.login_name,
-      password: user.password,
       first_name: user.first_name,
       last_name: user.last_name,
       location: user.location,

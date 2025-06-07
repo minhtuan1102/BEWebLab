@@ -5,30 +5,38 @@ const dbConnect = require("./db/dbConnect");
 const UserRouter = require("./routes/UserRouter");
 const PhotoRouter = require("./routes/PhotoRouter");
 const AuthRouter = require("./routes/AuthRouter");
-const TestRouter = require("./routes/TestRouter");
+const cloudinary = require("./config/cloudinary");
+const multer = require("multer");
+
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: "Photos",
+  allowedFormats: ["jpg", "png", "jpeg"],
+  transformation: [{ width: 500, height: 500, crop: "limit" }],
+});
+
+const PORT = process.env.PORT || 5000;
+
+const upload = multer({
+  storage: storage,
+});
 
 dbConnect();
 
-const allowedOrigin = 'http://localhost:3000';
-
-app.use(cors({
-  origin: allowedOrigin,
-  credentials: true,
-}));
-
+app.use(cors());
 app.use(express.json());
 app.use("/api/user", UserRouter);
-app.use("/api/photosOfUser", PhotoRouter);
-app.use("/api/admin", AuthRouter);
-app.use("/api/test", TestRouter);
+app.use("/api/photo", PhotoRouter);
+app.use("/api/login", UserRouter);
+app.use("/api/auth", AuthRouter);
+app.use(
+  "/api/upload",
+  upload.fields([{ name: "photo", maxCount: 1 }]),
+  PhotoRouter,
+);
+app.use("/api/write", PhotoRouter);
 
-// Serve static images
-app.use("/images", express.static("images"));
-
-app.get("/", (request, response) => {
-  response.send({ message: "Hello from photo-sharing app API!" });
-});
-
-app.listen(8081, () => {
-  console.log("server listening on port 8081");
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

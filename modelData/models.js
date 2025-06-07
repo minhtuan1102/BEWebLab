@@ -52,19 +52,14 @@ const schemaInfo = {
 // Create init users.
 
 const im = {
-  login_name: "Iam_Malcolm",
-  password: "123",
   _id: "57231f1a30e4351f4e9f4bd7",
   first_name: "Ian",
   last_name: "Malcolm",
   location: "Austin, TX",
   description: "Should've stayed in the car.",
   occupation: "Mathematician",
-
 };
 const er = {
-  login_name: "Ellen_Ripley",
-  password: "123",
   _id: "57231f1a30e4351f4e9f4bd8",
   first_name: "Ellen",
   last_name: "Ripley",
@@ -73,8 +68,6 @@ const er = {
   occupation: "Warrant Officer",
 };
 const pt = {
-  login_name: "Peregrin_Took",
-  password: "123",
   _id: "57231f1a30e4351f4e9f4bd9",
   first_name: "Peregrin",
   last_name: "Took",
@@ -87,8 +80,6 @@ const pt = {
   occupation: "Thain",
 };
 const rk = {
-  login_name: "Rey_Kenobi",
-  password: "123",
   _id: "57231f1a30e4351f4e9f4bda",
   first_name: "Rey",
   last_name: "Kenobi",
@@ -97,8 +88,6 @@ const rk = {
   occupation: "Rebel",
 };
 const al = {
-  login_name: "April_Ludgate",
-  password: "123",
   _id: "57231f1a30e4351f4e9f4bdb",
   first_name: "April",
   last_name: "Ludgate",
@@ -107,8 +96,6 @@ const al = {
   occupation: "Animal Control",
 };
 const jo = {
-  login_name: "John_Ousterhout",
-  password: "123",
   _id: "57231f1a30e4351f4e9f4bdc",
   first_name: "John",
   last_name: "Ousterhout",
@@ -123,73 +110,73 @@ const users = [im, er, pt, rk, al, jo];
 const photo1 = {
   _id: "57231f1a30e4351f4e9f4bdd",
   date_time: "2012-08-30 10:44:23",
-  file_name: "ouster.jpg",
+  file_name: "https://res.cloudinary.com/dfwou0bi1/image/upload/v1749271466/ouster_dcpkno.jpg",
   user_id: jo._id,
 };
 const photo2 = {
   _id: "57231f1a30e4351f4e9f4bde",
   date_time: "2009-09-13 20:00:00",
-  file_name: "malcolm2.jpg",
+  file_name: "https://res.cloudinary.com/dfwou0bi1/image/upload/v1749271467/malcolm2_i3wrbe.jpg",
   user_id: im._id,
 };
 const photo3 = {
   _id: "57231f1a30e4351f4e9f4bdf",
   date_time: "2009-09-13 20:05:03",
-  file_name: "malcolm1.jpg",
+  file_name: "https://res.cloudinary.com/dfwou0bi1/image/upload/v1749271466/malcolm1_xstjge.jpg",
   user_id: im._id,
 };
 const photo4 = {
   _id: "57231f1a30e4351f4e9f4be0",
   date_time: "2013-11-18 18:02:00",
-  file_name: "ripley1.jpg",
+  file_name: "https://res.cloudinary.com/dfwou0bi1/image/upload/v1749271467/took2_ijuaq8.jpg",
   user_id: er._id,
 };
 const photo5 = {
   _id: "57231f1a30e4351f4e9f4be1",
   date_time: "2013-09-20 17:30:00",
-  file_name: "ripley2.jpg",
+  file_name: "https://res.cloudinary.com/dfwou0bi1/image/upload/v1749271467/ripley2_ohwqzh.jpg",
   user_id: er._id,
 };
 const photo6 = {
   _id: "57231f1a30e4351f4e9f4be2",
   date_time: "2009-07-10 16:02:49",
-  file_name: "kenobi1.jpg",
+  file_name: "https://res.cloudinary.com/dfwou0bi1/image/upload/v1749271466/kenobi1_ypfh9v.jpg",
   user_id: rk._id,
 };
 const photo7 = {
   _id: "57231f1a30e4351f4e9f4be3",
   date_time: "2010-03-18 23:48:00",
-  file_name: "kenobi2.jpg",
+  file_name: "https://res.cloudinary.com/dfwou0bi1/image/upload/v1749271466/kenobi2_pw8cca.jpg",
   user_id: rk._id,
 };
 const photo8 = {
   _id: "57231f1a30e4351f4e9f4be4",
   date_time: "2010-08-30 14:26:00",
-  file_name: "kenobi3.jpg",
+  file_name: "https://res.cloudinary.com/dfwou0bi1/image/upload/v1749271466/kenobi3_na3li1.jpg",
   user_id: rk._id,
 };
 const photo9 = {
   _id: "57231f1a30e4351f4e9f4be5",
   date_time: "2013-12-03 09:02:00",
-  file_name: "took1.jpg",
+  file_name: "https://res.cloudinary.com/dfwou0bi1/image/upload/v1749271467/took1_crbcri.jpg",
   user_id: pt._id,
 };
 const photo10 = {
   _id: "57231f1a30e4351f4e9f4be6",
   date_time: "2013-12-03 09:03:00",
-  file_name: "took2.jpg",
+  file_name: "https://res.cloudinary.com/dfwou0bi1/image/upload/v1749271467/took2_ijuaq8.jpg",
   user_id: pt._id,
 };
 const photo11 = {
   _id: "57231f1a30e4351f4e9f4be7",
   date_time: "2013-09-04 09:16:32",
-  file_name: "ludgate1.jpg",
+  file_name: "https://res.cloudinary.com/dfwou0bi1/image/upload/v1749271467/ludgate1_yn7m3a.jpg",
   user_id: al._id,
 };
 const photo12 = {
   _id: "57231f1a30e4351f4e9f4be8",
   date_time: "2008-10-16 17:12:28",
-  file_name: "kenobi4.jpg",
+  file_name: "https://res.cloudinary.com/dfwou0bi1/image/upload/v1749271466/kenobi4_h1tyyp.jpg",
   user_id: rk._id,
 };
 
